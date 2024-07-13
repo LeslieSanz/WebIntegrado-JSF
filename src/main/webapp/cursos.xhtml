@@ -7,19 +7,48 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Cursos</title>
-        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/inicio.css"/>
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/cursos.css"/>
     </h:head>
     <h:body>
         <ui:include src="header.xhtml"/>
         
-        <section id="hola" class="hola section-padding" >
-            <h4>Imagina presentar tu proyectos con</h4>
-            <h1>confianza y profesionalismo</h1>
+        <section id="banner" class="banner section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12"></div>
+                    <div class="section-header text-center pb5">
+                        <h4>Imagina presentar tus proyectos con</h4>
+                        <h2>confianza y profesionalismo</h2>
+                        <div class="paragraph-container">
+                            <p>Si eres diseñador de interiores y deseas optimizar tu tiempo, dejando atrás la preocupación por múltiples presentaciones o cómo mostrar diversos documentos durante un proyecto, has llegado al lugar indicado. Enfócate en tu creatividad mientras nos encargamos de brindarte las herramientas y el apoyo necesario para presentar tus ideas con claridad y profesionalismo.</p>
+                        </div>
+                        <a href="#courses" class="btn btn-beige">Ver cursos</a>
+                    </div>
+                </div>
+            </div>    
         </section>
+
         
         <section id="courses" class="courses section-padding" >
          <!-- Estructura básica de una tarjeta -->
         <div class="container">
+            
+           <div class="row">
+            <div class="col-md-12"></div>
+            <div class="section-header text-center pb5">
+                <h5>Descubre sencillos cursos que te guiarán en el camino</h5>
+                <h:form>
+                    <h:selectOneMenu value="#{courseBean.selectedCategory}" styleClass="custom-select">
+                        <f:selectItem itemLabel="Seleccionar" itemValue="" />
+                        <f:selectItems value="#{courseBean.categories}" var="category" itemLabel="#{category}" itemValue="#{category}" />
+                    </h:selectOneMenu>
+                    <h:commandButton value="Filtrar" action="#{courseBean.filterCourses}" styleClass="btn btn-azul" />
+                </h:form>
+            </div>
+        </div>
+
+
+            
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card">

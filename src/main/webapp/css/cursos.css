@@ -1,0 +1,96 @@
+.section-padding {
+    padding: 150px 0;
+}
+
+.banner {
+    background: var(--neutral-50);
+     height: 500px; /* O la altura que desees */
+}
+
+.banner h2 {
+    font-weight: var(--font-weight-bold);
+}
+
+.paragraph-container {
+    margin: 20px; /* Ajusta el margen según tus necesidades */
+}
+
+/* Ejemplo de márgenes específicos */
+.paragraph-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.courses {
+    background: var(--neutral-0);
+}
+
+.custom-select {
+    margin: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+    cursor: pointer;
+}
+
+.section-header {
+    margin-bottom: 50px;
+}
+
+.proyectos h3 {
+    color: white;
+}
+
+.highlight-beige {
+    color: var(--beige-100); 
+    font-weight: var(--font-weight-bold);
+}
+
+.highlight-azul {
+    color: var(--azul-0); 
+    font-weight: var(--font-weight-bold);
+}
+
+.proyectos .card {
+    background-color: transparent; /* Blanco con 50% de opacidad */
+    color: white;
+    border-color: transparent;
+}
+
+.servicios .card-body {
+    font-size: 70px;
+    background: var(--neutral-50);
+}
+
+.servicios .card-body i {
+    color: var(--azul-50);
+}
+
+.card:hover .card-body {
+    transform: scale(1.1);
+}
+
+.proyectos {
+    background: var(--azul-50);
+}
+
+@media only screen and (max-width: 767px) {
+    .carousel-caption {
+        bottom: 125px;
+    }
+    .carousel-caption a {
+        padding: 10px 15px;
+    }
+}
+ 
