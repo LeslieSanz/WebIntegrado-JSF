@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Cursos</title>
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/inicio.css"/>
+    </h:head>
+    <h:body>
+        <ui:include src="header.xhtml"/>
+        
+        <section id="hola" class="hola section-padding" >
+            <h4>Imagina presentar tu proyectos con</h4>
+            <h1>confianza y profesionalismo</h1>
+        </section>
+        
+        <section id="courses" class="courses section-padding" >
+         <!-- Estructura básica de una tarjeta -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="../img/prueba_proyecto.jpg" class="card-img-top" alt=""/>
+                        <div class="card-header">
+                            Encabezado
+                        </div>
+                        <div class="card-body">
+                            <h5 class="Card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below lead in to additional content</p>
+                            <h:commandButton value="Go somewhere" styleClass="btn btn-azul"/>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="../img/prueba_proyecto.jpg" class="card-img-top" alt=""/>
+                        <div class="card-header">
+                            Encabezado
+                        </div>
+                        <div class="card-body">
+                            <h5 class="Card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below lead in to additional content</p>
+                            <h:commandButton value="Go somewhere" styleClass="btn btn-azul"/>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="../img/prueba_proyecto.jpg" class="card-img-top" alt=""/>
+                        <div class="card-header">
+                            Encabezado
+                        </div>
+                        <div class="card-body">
+                            <h5 class="Card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below lead in to additional content</p>
+                            <h:commandButton value="Go somewhere" styleClass="btn btn-azul"/>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </section>
+    </h:body>
+</html>
