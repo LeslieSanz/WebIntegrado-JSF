@@ -1,0 +1,51 @@
+/* Estilos para el cuerpo del documento */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-secondary);
+}
+body {
+    min-height: 100vh;
+    
+}
+
+/* Estilos para los encabezados */
+h1, h2, h3, h4{
+    font-family: var(--font-primary);
+}
+
+/* Estilos para los parrafos */
+p1, p2, p3{
+    font-family: var(--font-secondary);
+}
+
+/* Sobrescribir tamaño de encabezados */
+h1 {
+    font-size: var(--h1-size); 
+}
+
+h2 {
+    font-size: var(--h2-size); 
+}
+
+h3 {
+    font-size: var(--h3-size); 
+}
+
+h4 {
+    font-size: var(--h4-size); 
+}
+
+/* Sobrescribir tamaño de los parrafos */
+p1 {
+    font-size: var(--p1-size); 
+}
+
+p2 {
+    font-size: var(--p2-size); 
+}
+
+p3 {
+    font-size: var(--p3-size); 
+}

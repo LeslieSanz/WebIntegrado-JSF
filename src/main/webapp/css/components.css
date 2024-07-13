@@ -1,0 +1,147 @@
+/* Estilos para los elementos básicos */
+
+/* Estilo básico de botón con el color de la variable principal */
+/*.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: var(--azul-50);  Utilizar la variable --primary-color 
+}*/
+
+/* BOTONES */
+.btn {
+  border-radius: 10px;        /* Ajuste del radio del borde */
+  padding: 10px 30px;        /* Ajuste del padding */
+  font-size: var(--p2-size); /* Ajuste del tamaño de fuente */
+  text-decoration: none;
+  transition: 0.3s background-color;
+}
+
+/* Estilo de botón al pasar el ratón */
+.btn:hover {
+  background-color: var(--azul-0);
+}
+
+.navbar {
+  background-color: var(--beige-50);
+  height: 80px;
+  padding: 0 1rem;
+}
+
+.login-button {
+  background-color: var(--azul-50);
+  color: var(--blanco);
+  font-size: 14px;
+  padding: 8px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s background-color;
+}
+
+.login-button:hover {
+  background-color: var(--azul-0);
+}
+
+.navbar-toggler {
+  border: none;
+  font-size: 1.25rem;
+}
+
+.navbar-toggler:focus, .btn-close:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.nav-link {
+  color: var(--azul-50); /*Aqui tengo que cambiarle el color */
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--azul-0); /*Aqui tambien le cambio el color si es necesario */
+}
+
+.offcanvas.show:not(.hiding), .offcanvas.showing {
+  transform: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (min-width: 800px) { /* 768 tamaño de una tabler */
+  .nav-link {
+    color: var(--neutral-0); /*Aqui tengo que cambiarle el color */
+  }
+
+  .navbar {
+    background-color: var(--beige-50);
+    height: 80px;
+    padding: 0 90px;
+  }
+
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--azul-50);
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+  }
+
+  .nav-link:hover::before, .nav-link.active::before {
+    width: 100%;
+    visibility: visible;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--azul-50); /*Aqui tambien le cambio el color si es necesario */
+  }
+}
+
+/* Estilos del BOTON BEIGE */
+.btn-beige {
+  background-color: var(--beige-100); /* Nuevo color de fondo */
+  color: var(--neutral-50); /* Color del texto */
+  font-weight: var(--font-weight-medium);
+}
+
+.btn-beige:hover,
+.btn-beige:focus,
+.btn-beige:active {
+  background-color: var(--neutral-50); /* Color de fondo en hover */
+  border-color: var(--beige-100);     /* Color de borde en hover */
+  color: var(--beige-100);            /* Color del texto en hover */
+}
+
+/* Estilos del BOTON AZUL */
+.btn-azul {
+  background-color: var(--azul-50); 
+  color: var(--neutral-0); 
+  font-weight: var(--font-weight-medium);
+}
+
+.btn-azul:hover,
+.btn-azul:focus,
+.btn-azul:active {
+  background-color: var(--neutral-50); 
+  border-color: var(--azul-50);     
+  color: var(--azul-50);            
+}
+
+/* Estilos del BOTON BEIGE CLARO */
+.btn-beige-claro {
+  background-color: var(--neutral-50); 
+  color: var(--beige-100); 
+  font-weight: var(--font-weight-medium);
+}
+
+.btn-beige-claro:hover,
+.btn-beige-claro:focus,
+.btn-beige-claro:active {
+  background-color: var(--beige-100); 
+  border-color: var(--beige-50);     
+  color: var(--neutral-50);            
+}
