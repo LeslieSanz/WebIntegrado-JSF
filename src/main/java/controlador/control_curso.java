@@ -24,6 +24,11 @@ public class control_curso {
      liscur=new ArrayList();
     }
     
+    //Filtrar cursos por Categorias
+    public void filtraCat(){
+       liscur = new Negocio().ListarCursosPorCategoria(c.getCod());
+   }
+    
     @PostConstruct  // Se ejecuta cuando la pagina jsf se levanta
     public void init() {
         try {

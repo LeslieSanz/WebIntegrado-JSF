@@ -49,5 +49,28 @@ public class Negocio {
         }
         return lista;
     }
+    
+    public List<Curso> ListarCursosPorCategoria(String codCat) {
+    List<Curso> lista = new ArrayList<>();
+    Connection cn = MySQLConexion.getConexion();
+    try {
+        String sql = "SELECT codCurso, nombreCurso, precio, Categoria_codCat,  descripCur FROM curso WHERE Categoria_codCat = ?";
+        PreparedStatement st = cn.prepareStatement(sql);
+        st.setString(1, codCat);
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+            Curso c = new Curso();
+            c.setCodcur(rs.getString("codCurso"));
+            c.setNomCur(rs.getString("nombreCurso"));            
+            c.setPrecio(rs.getDouble("precio"));
+            c.setCodCat(rs.getString("Categoria_codCat"));
+            c.setDescripCur(rs.getString("descripCur"));
+            lista.add(c);
+        }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return lista;
+    }
      
 }
