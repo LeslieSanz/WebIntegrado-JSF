@@ -38,62 +38,50 @@
             <div class="section-header text-center pb5">
                 <h5>Descubre sencillos cursos que te guiarán en el camino</h5>
                 <h:form>
-                    <h:selectOneMenu value="#{courseBean.selectedCategory}" styleClass="custom-select">
+                    <h:selectOneMenu value="#{control_curso.c.cod}" styleClass="custom-select">
                         <f:selectItem itemLabel="Seleccionar" itemValue="" />
-                        <f:selectItems value="#{courseBean.categories}" var="category" itemLabel="#{category}" itemValue="#{category}" />
+                        <f:selectItems value="#{control_curso.liscat}" />
                     </h:selectOneMenu>
                     <h:commandButton value="Filtrar" action="#{courseBean.filterCourses}" styleClass="btn btn-azul" />
                 </h:form>
             </div>
         </div>
-
-
             
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card">
-                        <img src="../img/prueba_proyecto.jpg" class="card-img-top" alt=""/>
-                        <div class="card-header">
-                            Encabezado
-                        </div>
-                        <div class="card-body">
-                            <h5 class="Card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below lead in to additional content</p>
-                            <h:commandButton value="Go somewhere" styleClass="btn btn-azul"/>
-                        </div>
-                        <div class="card-footer"></div>
+            
+        <div class="row">
+        <ui:repeat value="#{control_curso.liscur}" var="curso">
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="../img/prueba_proyecto.jpg" class="card-img-top" alt=""/>
+                    <div class="card-header">
+                        #{curso.codcur} 
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card">
-                        <img src="../img/prueba_proyecto.jpg" class="card-img-top" alt=""/>
-                        <div class="card-header">
-                            Encabezado
-                        </div>
-                        <div class="card-body">
-                            <h5 class="Card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below lead in to additional content</p>
-                            <h:commandButton value="Go somewhere" styleClass="btn btn-azul"/>
-                        </div>
-                        <div class="card-footer"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">#{curso.nomCur}</h5>
+                        <p class="card-text">
+                            <script>
+                                var descripcion = "#{curso.descripCur}";
+                                var palabras = descripcion.split(" ", 15); // Obtener las primeras 20 palabras
+                                var resumen = palabras.join(" "); // Unir las palabras nuevamente en un string
+
+                                if (descripcion.length > resumen.length) {
+                                    resumen += "..."; // Agregar puntos suspensivos si el texto original es más largo
+                                }
+
+                                document.write(resumen);
+                            </script>
+                        </p>
+                        <h:commandButton value="Ver Detalles" styleClass="btn btn-azul"/>
+                        
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card">
-                        <img src="../img/prueba_proyecto.jpg" class="card-img-top" alt=""/>
-                        <div class="card-header">
-                            Encabezado
-                        </div>
-                        <div class="card-body">
-                            <h5 class="Card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below lead in to additional content</p>
-                            <h:commandButton value="Go somewhere" styleClass="btn btn-azul"/>
-                        </div>
-                        <div class="card-footer"></div>
+                    <div class="card-footer">
                     </div>
                 </div>
             </div>
+        </ui:repeat>
         </div>
+            
+        </div>  
        </section>
     </h:body>
 </html>
