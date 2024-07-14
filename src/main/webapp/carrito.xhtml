@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Carrito de Compras</title>
+</h:head>
+<h:body>
+    <h1>Carrito de Compras</h1>
+    <h:form>
+        <p:dataTable value="#{control_carrito.listaCarrito}" var="cp" paginator="true" rows="6">
+            <p:column headerText="Codigo">
+                <h:outputText value="#{cp.codcur}"/>
+            </p:column>
+            <p:column headerText="Nombre del Curso">
+                <h:outputText value="#{cp.nomCur}"/>
+            </p:column>
+            <p:column headerText="Precio">
+                <h:outputText value="#{cp.precio}"/>
+            </p:column>
+            <p:column headerText="Cantidad">
+                <h:outputText value="#{cp.cantidad}"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>

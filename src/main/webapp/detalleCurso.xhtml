@@ -38,9 +38,12 @@
                     </div>
                     <div class="col-md-6">
                         <h:form>
-                            <h:commandButton value="Agregar al carrito" action="#{carritoBean.agregarAlCarrito(control_curso.cur)}" styleClass="btn btn-success btn-lg" />
+                            <h:inputHidden value="#{control_curso.cur.codcur}" id="codCurso" />
+                            <h:inputText value="#{cantidad}" id="cantidad" />
+                            <h:commandButton value="Agregar al carrito" action="#{control_carrito.agregarAlCarrito}" styleClass="btn btn-success btn-lg">
+                                <f:setPropertyActionListener target="#{control_carrito.codigoCurso}" value="#{control_curso.cur.codcur}" />
+                            </h:commandButton>
                         </h:form>
-                        
                     </div>
                 </div>
             </div>
