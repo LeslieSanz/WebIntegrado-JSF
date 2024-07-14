@@ -100,4 +100,39 @@ public class Negocio {
         return c;
     }
      
+    //Registrar compras
+    public String registrarCompra(String codusu, List<Compra> lista) {
+        
+        String fac="";
+        
+        //Calcular el total de la compra
+        double sum=0;
+        for(Compra x:lista)sum=sum+x.total();
+        
+        //Grabar la compra
+        String sql="{call generar_factura(?,?)}";
+        Connection cn=MySQLConexion.getConexion();
+        try{
+        CallableStatement st=cn.prepareCall(sql);
+        st.setString(1, codusu);
+        st.setDouble(2, sum);
+        ResultSet rs=st.executeQuery();
+        rs.next();
+        fac=rs.getString(1);
+        //Grabar los detalles
+        sql="{call agregar_detalle(?,?,?)}";
+        CallableStatement st2=cn.prepareCall(sql);
+        for(Compra x:lista){
+            st2.setString(1,fac);
+            st2.setString(2, x.getCodcur());
+            st2.setInt(3, x.getCantidad());
+            st2.executeUpdate();
+        }
+
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return fac;
+    }
+     
 }

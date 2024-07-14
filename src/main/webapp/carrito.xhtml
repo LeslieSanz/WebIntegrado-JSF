@@ -129,10 +129,9 @@
                   <span><strong>s./ #{control_carrito.calculaTotal()}</strong></span>
               </li>
             </ul>
-
-            <button  type="button"  class="btn btn-primary btn-lg btn-block">
-              Confirmar
-            </button>
+            <h:form>
+                <h:commandButton value="Confirmar" action="#{control_carrito.confirmarCompra}" class="btn btn-primary btn-lg btn-block" />
+            </h:form>
           </div>
         </div>
       </div>

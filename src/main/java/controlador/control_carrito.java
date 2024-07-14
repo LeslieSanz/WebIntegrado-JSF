@@ -74,6 +74,12 @@ public class control_carrito implements Serializable{
         return Double.parseDouble(String.format("%.2f", igv));
     }
     
+    public void confirmarCompra() {
+        System.out.println("Entrando a confirmar compra");
+        String codusu = "A0001";
+        new Negocio().registrarCompra(codusu, listaCarrito);
+    }
+    
     @PostConstruct
     public void init() {
         
