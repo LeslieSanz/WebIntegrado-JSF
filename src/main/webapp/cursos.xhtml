@@ -52,7 +52,8 @@
             <ui:repeat value="#{control_curso.liscur}" var="curso">
                 <div class="col-lg-4 mb-4"> <!-- mb-4 añade un margen inferior de 1.5rem -->
                     <div class="card">
-                        <img src="../img/prueba_proyecto.jpg" class="card-img-top" alt=""/>
+                        <img src="../img_cursos/#{curso.codcur}.jpg" class="card-img-top" alt=""/>
+                         
                         <div class="card-header">
                             #{curso.codcur} 
                         </div>
@@ -71,7 +72,9 @@
                                     document.write(resumen);
                                 </script>
                             </p>
-                            <h:commandButton value="Ver Detalles" styleClass="btn btn-azul"/>
+                            <h:link outcome="detalleCurso.xhtml" value="Ver Detalles" styleClass="btn btn-azul">
+                                <f:param name="cod" value="#{curso.codcur}" />
+                            </h:link>
                         </div>
                         <div class="card-footer">
                         </div>
