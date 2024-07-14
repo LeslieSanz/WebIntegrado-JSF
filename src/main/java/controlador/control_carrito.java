@@ -55,6 +55,25 @@ public class control_carrito implements Serializable{
         }
     }
     
+    //Para sumar los detalles y calcular el total
+    public double calculaTotal(){
+       double total = 0;
+       for(Compra x: listaCarrito){
+           total = total + x.total();
+       }
+       return total;
+   }
+    
+    public double calculaISubtotal(){
+        double sbt = 0.72 * calculaTotal();
+        return Double.parseDouble(String.format("%.2f", sbt));
+   }
+    
+    public double calculaIGV() {
+        double igv = 0.18 * calculaTotal();
+        return Double.parseDouble(String.format("%.2f", igv));
+    }
+    
     @PostConstruct
     public void init() {
         
