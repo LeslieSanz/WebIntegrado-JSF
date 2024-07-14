@@ -12,7 +12,7 @@ public class Negocio {
     public List<Categoria> ListarCategorias(){
         List<Categoria> lista=new ArrayList();
         Connection cn=MySQLConexion.getConexion();
-        System.out.println("Holi este es listar cat");
+        
         try{
             String sql="SELECT codCat,nomCategor FROM categoria";
             PreparedStatement st=cn.prepareStatement(sql);
@@ -32,7 +32,7 @@ public class Negocio {
     public List<Curso> ListarCursos(){
         List<Curso> lista=new ArrayList();
         Connection cn=MySQLConexion.getConexion();
-        System.out.println("Holi este es listar cursos");
+        
         try{
             String sql="SELECT codCurso, nombreCurso, precio, Categoria_codCat, descripCur FROM curso";
             PreparedStatement st=cn.prepareStatement(sql);
@@ -55,7 +55,7 @@ public class Negocio {
     public List<Curso> ListarCursosPorCategoria(String codCat) {
     List<Curso> lista = new ArrayList<>();
     Connection cn = MySQLConexion.getConexion();
-    System.out.println("Holi este es listar cursos por cat");
+    
     try {
         String sql = "SELECT codCurso, nombreCurso, precio, Categoria_codCat,  descripCur FROM curso WHERE Categoria_codCat = ?";
         PreparedStatement st = cn.prepareStatement(sql);
@@ -80,7 +80,7 @@ public class Negocio {
      public Curso buscarCurso(String cod){
         Curso c = null;
         Connection cn=MySQLConexion.getConexion();
-         System.out.println("Holi este es buscar curso");
+        
         try{
             String sql="SELECT codCurso, nombreCurso, precio, Categoria_codCat,  descripCur FROM curso where codCurso=?";
             PreparedStatement st=cn.prepareStatement(sql);

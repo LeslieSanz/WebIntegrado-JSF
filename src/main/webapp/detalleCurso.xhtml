@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
     <title>Detalles del Curso</title>
@@ -10,14 +11,44 @@
 
 <h:body>
     
+    <ui:include src="header.xhtml"/>
 
-    <!-- Contenido de la página -->
-    <h2>Detalles del Curso</h2>
-    <p>Código del curso: #{control_curso.cur.codcur}</p>
-    <p>Nombre del curso: #{control_curso.cur.nomCur}</p>
-    <p>Precio del curso: #{control_curso.cur.precio}</p>
-    <p>Categoría del curso: #{control_curso.cur.codCat}</p>
-    <p>Descripción del curso: #{control_curso.cur.descripCur}</p>
+    <section id="detalle" class="detalle section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Contenido de la imagen -->
+                <img src="../img_cursos/#{control_curso.cur.codcur}.jpg" alt="Imagen del curso" class="img-fluid rounded shadow"/>
+            </div>
+            <div class="col-md-6">
+                <!-- Contenido de los detalles del curso -->
+                <h4>#{control_curso.cur.nomCur}</h4>
+                <p><span class="dato">Código:</span> #{control_curso.cur.codcur}</p>
+                <p><span class="dato">Precio:</span> s/. #{control_curso.cur.precio}</p>
+                <p><span class="dato">Categoría:</span> #{control_curso.cur.codCat}</p>
+                <p><span class="dato">Descripción:</span> #{control_curso.cur.descripCur}</p>
+                
+                <!-- Botón Agregar al Carrito y Spinner de Cantidad -->
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text">Cantidad:</span>
+                            <input type="number" class="form-control" value="1" min="1"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h:form>
+                            <h:commandButton value="Agregar al carrito" action="#{carritoBean.agregarAlCarrito(control_curso.cur)}" styleClass="btn btn-success btn-lg" />
+                        </h:form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
     
 
     <!-- Aquí puedes agregar más detalles del curso según lo necesites -->

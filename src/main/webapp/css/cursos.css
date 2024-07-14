@@ -2,6 +2,21 @@
     padding: 150px 0;
 }
 
+.detalle {
+    background: var(--neutral-50);
+     
+}
+
+.detalle h4{
+    color: var(--azul-50);
+    font-weight: var(--font-weight-bold);
+     
+}
+
+.dato {
+    font-weight: var(--font-weight-bold);
+}
+
 .banner {
     background: var(--neutral-50);
      height: 500px; /* O la altura que desees */
