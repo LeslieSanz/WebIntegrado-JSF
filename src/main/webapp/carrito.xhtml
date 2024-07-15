@@ -18,9 +18,10 @@
   
   <section class="gradient-custom section-padding">
   <div class="container py-5">
+    <h:form>
     <div class="row d-flex justify-content-center my-4">
+        
       <div class="col-md-8">
-          
           <div class="mb-3">
             <h6 class="mb-0"><a href="cursos.xhtml" class="text-body"><i
                   class="fas fa-long-arrow-alt-left me-2"></i>Continuar comprando</a></h6>
@@ -69,9 +70,14 @@
                   <p class="mb-0 me-3">
                     <strong>s./#{cp.total()}</strong>
                   </p>
-                  <button type="button" class="btn btn-danger">
-                    <i class="fas fa-trash"></i>
-                  </button>
+                    <button type="button" class="btn btn-danger">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    
+                    <h:commandButton action="#{control_carrito.eliminarDelCarrito(cp)}">
+                        <f:ajax render="@form" /> 
+                    </h:commandButton>
+                
                 </div>
                 <!-- Price and Trash Button -->
               </div>
@@ -80,7 +86,7 @@
             <!-- Single item -->
             <hr class="my-4" />
             </ui:repeat>
-            
+              
           </div>
         </div>
         <div class="card mb-4">
@@ -134,8 +140,9 @@
             </h:form>
           </div>
         </div>
-      </div>
+      </div>  
     </div>
+    </h:form>
   </div>
 </section>
 

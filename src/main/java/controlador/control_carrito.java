@@ -88,6 +88,12 @@ public class control_carrito implements Serializable{
         }
     }
     
+    // Método para eliminar un producto del carrito
+    public void eliminarDelCarrito(Compra c) {
+        System.out.println("Eliminando del carrito");
+        listaCarrito.remove(c);
+    }
+    
     @PostConstruct
     public void init() {
         
