@@ -17,11 +17,31 @@ import javax.faces.model.SelectItem;
 public class control_compras {
     
     private List<Compra> liscompras;
+    private List<Compra> lisdetalles;
+
+    public List<Compra> getLisdetalles() {
+        return lisdetalles;
+    }
+
+    public void setLisdetalles(List<Compra> lisdetalles) {
+        this.lisdetalles = lisdetalles;
+    }
     
     
     //Constructor
     public control_compras() {
      liscompras = new ArrayList();
+    }
+    
+    // Método para buscar todos los cursos de una compra por código
+    public void buscarDetalles(String cod) {
+        System.out.println("Entrando a buscarDetalles con código: " + cod);
+        try {
+            //lisdetalles = new Negocio().LisDetalleCompra(cod);
+        } catch (Exception e) {
+            System.out.println("Error al buscar detalles código: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @PostConstruct  // Se ejecuta cuando la pagina jsf se levanta
@@ -29,12 +49,12 @@ public class control_compras {
         System.out.println("Inicializando control compras");
         try {
            //Para listar todas las compras del usuario
-           liscompras = new Negocio().LisComprasPorUsu();
+           //liscompras = new Negocio().LisComprasPorUsu();
             
-//            String cod = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("cod");
-//            if (cod != null) {
-//                buscarCurso(cod);
-//            }
+            String cod = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("codCompra");
+            if (cod != null) {
+                buscarDetalles(cod);
+            }
 
         } catch (Exception e) {
             e.printStackTrace(); // Imprime la traza del error para más detalles
@@ -49,6 +69,8 @@ public class control_compras {
     public void setLiscompras(List<Compra> liscompras) {
         this.liscompras = liscompras;
     }
+
+    
 
 
     

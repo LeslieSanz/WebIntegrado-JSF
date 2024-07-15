@@ -184,5 +184,39 @@ public List<Compra> LisComprasPorUsu() {
     return lista;
 }
 
-     
+ // Listar tooooodos los cursos de una compra
+public List<Compra> LisDetalleCompra(String codcom) {    
+    List<Compra> lista = new ArrayList<>();
+    Connection cn = MySQLConexion.getConexion();   
+    try {
+        String sql = "{call ObtenerDetalleCompra(?)}"; 
+        CallableStatement st = cn.prepareCall(sql);
+        st.setString(1, codcom);
+        ResultSet rs = st.executeQuery();   
+        while (rs.next()) {
+            Compra c = new Compra();
+            c.setCodcur(rs.getString(1));
+            c.setNomCat(rs.getString(2));
+            c.setCantidad(rs.getInt(3)); 
+            c.setPrecio(rs.getDouble(4));
+            lista.add(c);
+        } 
+        System.out.println("Consulta completada. Número de detalles obtenidos: " + lista.size());
+    } catch (Exception ex) {
+        System.out.println("Error durante la ejecución del método LisComprasPorUsu");
+        ex.printStackTrace();
+    } finally {
+        try {
+            if (cn != null && !cn.isClosed()) {
+                cn.close();
+                System.out.println("Conexión a la base de datos cerrada");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al cerrar la conexión a la base de datos");
+            e.printStackTrace();
+        }
+    }
+    
+    return lista;
+}   
 }

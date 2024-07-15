@@ -8,6 +8,7 @@
         <title>Mis compras</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous"/>
         <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/cursos.css"/>
+       
     </h:head>
     <h:body>
         <ui:include src="header.xhtml"/>
@@ -16,7 +17,7 @@
         <h:form>
             <div class="container mt-5">
                 <h3 style="font-weight: bold;">Mis Compras</h3>
-                <table class="table table-striped">
+                <table class="table table-sm table-striped ">
                     <thead>
                         <tr>
                             <th>Código de Compra</th>
@@ -41,9 +42,10 @@
                                         <f:convertNumber type="currency" currencySymbol="S/."/>
                                     </h:outputText>
                                 </td>
-                                <td><a href="#" class="btn btn-warning">
-                                        <i class="fas fa-edit"></i> 
-                                      </a>
+                                <td>
+                                <h:link outcome="misCompras.xhtml" value="Ver" styleClass="btn btn-warning">
+                                <f:param name="codCompra" value="#{compra.codCompra}" />
+                                </h:link>
                                 </td>
                             </tr>
                         </ui:repeat>
@@ -51,6 +53,45 @@
                 </table>
             </div>
         </h:form>
-            </section>
+            
+        <h:form>
+            <div class="container mt-5">
+                <h4 style="font-weight: bold;">Detalle de la compra</h4>
+                <table class="table table-bordered table-striped">
+                     <thead class="table-black-header">
+                        <tr>
+                            <th>Código de curso</th>
+                            <th>Categoría</th>
+                            <th>Cantidad</th>
+                            <th>Precio unitario</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat value="#{control_compras.lisdetalles}" var="deta">
+                            <tr>
+                                <td>#{deta.codcur}</td>
+                                <td>#{deta.nomCat}</td>
+                                <td>#{deta.cantidad}</td>
+                                <td>
+                                    <h:outputText value="#{deta.precio}">
+                                        <f:convertNumber type="currency" currencySymbol="S/."/>
+                                    </h:outputText>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{deta.total()}">
+                                        <f:convertNumber type="currency" currencySymbol="S/."/>
+                                    </h:outputText>
+                                </td>
+                                
+                                
+                            </tr>
+                        </ui:repeat>
+               
+                    </tbody>
+                </table>
+            </div>
+        </h:form>
+        </section>
     </h:body>
 </html>
