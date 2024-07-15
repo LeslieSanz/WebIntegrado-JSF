@@ -20,7 +20,7 @@ public class ProcesoAPI {
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Accept", "application/json");
             conn.setRequestProperty("Content-Type", "application/json");
-            conn.setRequestProperty("Authorization", "Bearer 8b6f3f02051cd2e6b9cefa4802e89310a91328722fe389e555e3e2695086a8a1");
+            conn.setRequestProperty("Authorization", "Bearer 8b74e5d3b53a26addb48138fe8153afb2ad85b61a67371c4b90e22e05bcd940a");
 
             conn.setDoOutput(true);
             String jsonInputString = "{\"dni\": \"" + dni + "\"}";

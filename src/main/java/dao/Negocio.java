@@ -136,7 +136,7 @@ public class Negocio {
         }
         return fac;
     }
-<<<<<<< HEAD
+
      public String registrarUsuario(UsuarioBean usuario) {
         Connection con = null;
         PreparedStatement ps = null;
@@ -228,5 +228,4 @@ public class Negocio {
             }
         }
     }
-
 }
