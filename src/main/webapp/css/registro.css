@@ -3,6 +3,10 @@
 body {
     font-family: "Arima", system-ui;
     background-color: #1F2D3D;
+    background-image: url('../img/FondoLogin.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -46,48 +50,44 @@ body {
     font-size: 2.5em; /* Cambia este valor al tamaño que desees */
 }
 
-
-#registroForm p, #loginForm p {
-    text-align: center;
-    color: #666;
-    margin: 5px 0 20px 0;
-}
-
-#registroForm h\:panelGrid, #loginForm h\:panelGrid {
+#registroForm , #loginForm  {
     width: 100%;
 }
 
-#registroForm h\:panelGrid .ui-inputtext, 
-#registroForm h\:panelGrid .ui-inputsecret,
-#loginForm h\:panelGrid .ui-inputtext, 
-#loginForm h\:panelGrid .ui-inputsecret {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
+#registroForm .ui-inputtext, 
+#registroForm .ui-password,
+#loginForm .ui-inputtext, 
+#loginForm .ui-password {
+    width: 390px; 
+    padding: 13px;
+    margin-bottom: 10px;
     border-radius: 25px;
     border: none;
-    background-color: #3D4A5F; /* Cambia el color de fondo a uno más oscuro */
-    color: #fff; /* Cambia el color del texto a blanco */
+    background-color:#d3d3d4; 
+    color: #000; 
     box-sizing: border-box;
 }
 
-#registroForm h\:panelGrid .ui-commandbutton, 
-#loginForm h\:panelGrid .ui-commandbutton {
-    width: 100%; /* Hace que los botones ocupen todo el ancho */
+
+#registroForm .ui-commandbutton, 
+#loginForm .ui-commandbutton {
+    width: 100%; /* Asegúrate de que ocupen todo el ancho del contenedor */
     padding: 10px;
     margin-bottom: 10px;
-    border-radius: 75px;
+    border-radius: 25px; /* Ajusta el radio para una apariencia más suave */
     background-color: #8F7C6A;
     color: white;
     border: none;
     cursor: pointer;
     box-sizing: border-box;
+    transition: background-color 0.3s ease; /* Añade una transición suave */
 }
 
-#registroForm h\:panelGrid .ui-commandbutton:hover, 
-#loginForm h\:panelGrid .ui-commandbutton:hover {
-    background-color: #7A6755;
+#registroForm .ui-commandbutton:hover, 
+#loginForm .ui-commandbutton:hover {
+    background-color: #7A6755; /* Cambia el color en hover */
 }
+
 
 #registroForm a, #loginForm a {
     color: #8F7C6A;
@@ -100,4 +100,3 @@ body {
 #registroForm a:hover, #loginForm a:hover {
     text-decoration: underline;
 }
- 
