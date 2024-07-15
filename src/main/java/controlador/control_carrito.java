@@ -74,10 +74,10 @@ public class control_carrito implements Serializable{
         return Double.parseDouble(String.format("%.2f", igv));
     }
     
-    public void confirmarCompra() {
+    public void confirmarCompra(String codCli) {
         System.out.println("Entrando a confirmar compra");
-        String codusu = "A0001";
-        new Negocio().registrarCompra(codusu, listaCarrito);
+        
+        new Negocio().registrarCompra(codCli, listaCarrito);
         
         // Redirigir a la página de compra exitosa
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
@@ -105,6 +105,11 @@ public class control_carrito implements Serializable{
         for (Compra compra : listaCarrito) {
             System.out.println("- " + compra.getCodcur() + " | " + compra.getNomCur() + " | " + compra.getPrecio() + " | " + compra.getCantidad());
         }
+        
+        String codCli = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("codCli");
+            if (codCli != null) {
+                confirmarCompra(codCli);
+         }
         
     }
 
