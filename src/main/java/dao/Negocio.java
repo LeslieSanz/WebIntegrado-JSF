@@ -134,5 +134,55 @@ public class Negocio {
         }
         return fac;
     }
+    
+ // Lista de Compras por Usuario
+public List<Compra> LisComprasPorUsu() {
+    String codusu = "A0001";
+    
+    List<Compra> lista = new ArrayList<>();
+    Connection cn = MySQLConexion.getConexion();
+    System.out.println("Iniciando la conexión a la base de datos");
+    
+    try {
+        String sql = "{call ObtenerComprasPorUsuario(?)}"; // Agregar el parámetro del procedimiento
+        CallableStatement st = cn.prepareCall(sql);
+        System.out.println("Preparando la llamada al procedimiento almacenado");
+        
+        st.setString(1, codusu);
+        System.out.println("Estableciendo el parámetro codusu: " + codusu);
+        
+        ResultSet rs = st.executeQuery();
+        System.out.println("Ejecutando la consulta");
+        
+        while (rs.next()) {
+            Compra c = new Compra();
+            c.setCodCompra(rs.getString(1));
+            c.setFecha(rs.getString(2));
+            c.setCantCursos(rs.getInt(3)); // Agregar la cantidad de cursos
+            c.setMonto(rs.getDouble(4)); // Agregar el monto total
+            
+            System.out.println("Compra obtenida: " + c.getCodCompra() + ", " + c.getFecha() + ", " + c.getCantCursos() + ", " + c.getMonto());
+            lista.add(c);
+        }
+        
+        System.out.println("Consulta completada. Número de compras obtenidas: " + lista.size());
+    } catch (Exception ex) {
+        System.out.println("Error durante la ejecución del método LisComprasPorUsu");
+        ex.printStackTrace();
+    } finally {
+        try {
+            if (cn != null && !cn.isClosed()) {
+                cn.close();
+                System.out.println("Conexión a la base de datos cerrada");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al cerrar la conexión a la base de datos");
+            e.printStackTrace();
+        }
+    }
+    
+    return lista;
+}
+
      
 }
