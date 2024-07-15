@@ -22,6 +22,10 @@
                 <p:inputText id="username" value="#{control_usuario.usuario.dni}" placeholder="Ingrese su usuario..." required="true"/>
                 <p:password id="password" value="#{control_usuario.usuario.password}" placeholder="Ingrese su contraseña..." required="true"/>
                 <p:commandButton value="Login" action="#{control_usuario.login}"/>
+                <h:outputLink value="registro.xhtml" styleClass="link-text">
+                    Registrate
+                </h:outputLink>
+
             </h:panelGrid>
             <h:messages globalOnly="true"/>
         </h:form>

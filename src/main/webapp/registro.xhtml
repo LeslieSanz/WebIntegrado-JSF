@@ -26,6 +26,7 @@
                 <p:password id="password" value="#{control_usuario.usuario.password}" placeholder="Ingrese su contraseña..."/>
                 <p:password id="confirmPassword" value="#{control_usuario.usuario.confirmPassword}" placeholder="Confirme su contraseña..."/>
                 <p:commandButton value="Registrar" action="#{control_usuario.registrar}"/>
+                <p:commandLink value="Iniciar Sesión" action="#{control_usuario.redirigirLogin}" />
             </h:panelGrid>
         </h:form>
     </div>
