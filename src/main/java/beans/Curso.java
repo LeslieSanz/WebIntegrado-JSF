@@ -6,7 +6,9 @@ public class Curso {
     private double precio;
     private String codCat;
     private String descripCur;
-
+    
+    //Obtener detalle de compra
+    private String nomCat;
     public String getDescripCur() {
         return descripCur;
     }
@@ -57,5 +59,13 @@ public class Curso {
 
     public void setCodCat(String codCat) {
         this.codCat = codCat;
+    }
+
+    public String getNomCat() {
+        return nomCat;
+    }
+
+    public void setNomCat(String nomCat) {
+        this.nomCat = nomCat;
     }
 }

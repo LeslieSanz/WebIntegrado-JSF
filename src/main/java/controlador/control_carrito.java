@@ -78,6 +78,20 @@ public class control_carrito implements Serializable{
         System.out.println("Entrando a confirmar compra");
         String codusu = "A0001";
         new Negocio().registrarCompra(codusu, listaCarrito);
+        
+        // Redirigir a la página de compra exitosa
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        try {
+            ec.redirect(ec.getRequestContextPath() + "/faces/compraExitosa.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    // Método para eliminar un producto del carrito
+    public void eliminarDelCarrito(Compra c) {
+        System.out.println("Eliminando del carrito");
+        listaCarrito.remove(c);
     }
     
     @PostConstruct
