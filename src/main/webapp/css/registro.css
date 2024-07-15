@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Playwrite+CU:wght@100..400&family=Playwrite+HU:wght@100..400&display=swap');
+
+body {
+    font-family: "Arima", system-ui;
+    background-color: #1F2D3D;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0 20px; 
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Asegura espacio entre logo y formulario */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Limita el ancho máximo del contenedor */
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 550px; /* Aumenta el tamaño del logo */
+    height: auto;
+}
+
+#registroForm, #loginForm {
+    background-color: #FAFAFA;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    color: #333;
+    margin-right: 20px;
+}
+
+#registroForm h2, #loginForm h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em; /* Cambia este valor al tamaño que desees */
+}
+
+
+#registroForm p, #loginForm p {
+    text-align: center;
+    color: #666;
+    margin: 5px 0 20px 0;
+}
+
+#registroForm h\:panelGrid, #loginForm h\:panelGrid {
+    width: 100%;
+}
+
+#registroForm h\:panelGrid .ui-inputtext, 
+#registroForm h\:panelGrid .ui-inputsecret,
+#loginForm h\:panelGrid .ui-inputtext, 
+#loginForm h\:panelGrid .ui-inputsecret {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    border: none;
+    background-color: #3D4A5F; /* Cambia el color de fondo a uno más oscuro */
+    color: #fff; /* Cambia el color del texto a blanco */
+    box-sizing: border-box;
+}
+
+#registroForm h\:panelGrid .ui-commandbutton, 
+#loginForm h\:panelGrid .ui-commandbutton {
+    width: 100%; /* Hace que los botones ocupen todo el ancho */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 75px;
+    background-color: #8F7C6A;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#registroForm h\:panelGrid .ui-commandbutton:hover, 
+#loginForm h\:panelGrid .ui-commandbutton:hover {
+    background-color: #7A6755;
+}
+
+#registroForm a, #loginForm a {
+    color: #8F7C6A;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#registroForm a:hover, #loginForm a:hover {
+    text-decoration: underline;
+}
+ 

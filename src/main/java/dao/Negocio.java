@@ -4,6 +4,8 @@ package dao;
 import java.sql.*;
 import java.util.*;
 import beans.*;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import util.MySQLConexion;
 
 public class Negocio {
@@ -134,5 +136,95 @@ public class Negocio {
         }
         return fac;
     }
-     
+     public String registrarUsuario(UsuarioBean usuario) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        try {
+            con = MySQLConexion.getConexion();
+            String sql = "INSERT INTO usuario (dni, password, nombre, apellidos, correo, Rol_codRol) VALUES (?, ?, ?, ?, ?, ?)";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usuario.getDni());
+            ps.setString(2, usuario.getPassword());
+            ps.setString(3, usuario.getNombre());
+            ps.setString(4, usuario.getApellidos());
+            ps.setString(5, usuario.getCorreo());
+            ps.setInt(6, 2);
+            ps.executeUpdate();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro exitoso", "Usuario registrado correctamente"));
+            return "login?faces-redirect=true";
+        } catch (SQLException e) {
+            e.printStackTrace();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Registro fallido", "Ocurrió un error al registrar el usuario"));
+            return null;
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    // Método de login
+    public String loginUsuario(UsuarioBean usuario) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            con = MySQLConexion.getConexion();
+            String sql = "SELECT * FROM usuario WHERE dni = ? AND password = ?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usuario.getDni());
+            ps.setString(2, usuario.getPassword());
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                // Credenciales válidas
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Login exitoso", "Credenciales válidas"));
+                return "index?faces-redirect=true";
+            } else {
+                // Credenciales inválidas
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login fallido", "DNI o contraseña incorrectos"));
+                return null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login fallido", "Ocurrió un error al intentar iniciar sesión"));
+            System.out.println("Error de SQL: " + e.getMessage());
+            return null;
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

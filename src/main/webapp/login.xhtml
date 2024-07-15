@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Login de usuarios</title>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/registro.css"/>
+    <h:outputScript name="https://kit.fontawesome.com/09bca36bc3.js" target="head"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+    <h:outputScript name="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" target="body"/>
+</h:head>
+<h:body>
+    <div class="container">
+        <div class="logo">
+            <img src="#{request.contextPath}/img/LogoRegistro.png" alt="Logo"/>
+        </div>
+        <h:form id="loginForm">
+            <h2>¡Bienvenido de nuevo!</h2>
+            <p>Es bueno tenerte de vuelta</p>
+            <h:panelGrid columns="1">
+                <p:inputText id="username" value="#{control_usuario.usuario.dni}" placeholder="Ingrese su usuario..." required="true"/>
+                <p:password id="password" value="#{control_usuario.usuario.password}" placeholder="Ingrese su contraseña..." required="true"/>
+                <p:commandButton value="Login" action="#{control_usuario.login}"/>
+            </h:panelGrid>
+            <h:messages globalOnly="true"/>
+        </h:form>
+    </div>
+</h:body>
+</html>
