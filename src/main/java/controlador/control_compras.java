@@ -1,4 +1,3 @@
-
 package controlador;
 
 import javax.faces.bean.ManagedBean;
@@ -37,7 +36,7 @@ public class control_compras {
     public void buscarDetalles(String cod) {
         System.out.println("Entrando a buscarDetalles con código: " + cod);
         try {
-            lisdetalles = new Negocio().LisDetalleCompra(cod);
+            //lisdetalles = new Negocio().LisDetalleCompra(cod);
         } catch (Exception e) {
             System.out.println("Error al buscar detalles código: " + e.getMessage());
             e.printStackTrace();
@@ -69,9 +68,4 @@ public class control_compras {
     public void setLiscompras(List<Compra> liscompras) {
         this.liscompras = liscompras;
     }
-
-    
-
-
-    
 }

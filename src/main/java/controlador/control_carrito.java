@@ -1,4 +1,3 @@
-
 package controlador;
 
 import javax.faces.bean.ManagedBean;
@@ -74,10 +73,10 @@ public class control_carrito implements Serializable{
         return Double.parseDouble(String.format("%.2f", igv));
     }
     
-    public void confirmarCompra(String codCli) {
+    public void confirmarCompra() {
         System.out.println("Entrando a confirmar compra");
-        
-        new Negocio().registrarCompra(codCli, listaCarrito);
+        String codusu = "C0011";
+        new Negocio().registrarCompra(codusu, listaCarrito);
         
         // Redirigir a la página de compra exitosa
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
@@ -106,11 +105,6 @@ public class control_carrito implements Serializable{
             System.out.println("- " + compra.getCodcur() + " | " + compra.getNomCur() + " | " + compra.getPrecio() + " | " + compra.getCantidad());
         }
         
-        String codCli = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("codCli");
-            if (codCli != null) {
-                confirmarCompra(codCli);
-         }
-        
     }
 
     //Getters y setters
@@ -138,5 +132,4 @@ public class control_carrito implements Serializable{
     public void setListaCarrito(List<Compra> listaCarrito) {
         this.listaCarrito = listaCarrito;
     }
-    
-}
+    }

@@ -135,10 +135,9 @@
                   <span><strong>s./ #{control_carrito.calculaTotal()}</strong></span>
               </li>
             </ul>
-              <h:link outcome="compraExitosa.xhtml" value="Confirmar" styleClass="btn btn-primary btn-lg btn-block">
-                  <f:param name="codCli" value="#{control_usuario.usuario.cod}" />
-               </h:link>
-            
+            <h:form>
+                <h:commandButton value="Confirmar" action="#{control_carrito.confirmarCompra}" class="btn btn-primary btn-lg btn-block" />
+            </h:form>
           </div>
         </div>
       </div>  
