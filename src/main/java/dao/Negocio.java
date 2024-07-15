@@ -136,6 +136,7 @@ public class Negocio {
         }
         return fac;
     }
+
      public String registrarUsuario(UsuarioBean usuario) {
         Connection con = null;
         PreparedStatement ps = null;

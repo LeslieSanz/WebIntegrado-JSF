@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Mis compras</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/cursos.css"/>
+       
+    </h:head>
+    <h:body>
+        <ui:include src="header.xhtml"/>
+
+        <section class="gradient-custom section-padding">
+        <h:form>
+            <div class="container mt-5">
+                <h3 style="font-weight: bold;">Mis Compras</h3>
+                <table class="table table-sm table-striped ">
+                    <thead>
+                        <tr>
+                            <th>Código de Compra</th>
+                            <th>Fecha</th>
+                            <th>Cantidad de cursos</th>
+                            <th>Total</th>
+                            <th>Ver detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat value="#{control_compras.liscompras}" var="compra">
+                            <tr>
+                                <td>#{compra.codCompra}</td>
+                                <td>
+                                    <h:outputText value="#{compra.fecha}">
+                                        <f:convertDateTime pattern="yyyy-MM-dd"/>
+                                    </h:outputText>
+                                </td>
+                                <td>#{compra.cantCursos}</td>
+                                <td>
+                                    <h:outputText value="#{compra.monto}">
+                                        <f:convertNumber type="currency" currencySymbol="S/."/>
+                                    </h:outputText>
+                                </td>
+                                <td>
+                                <h:link outcome="misCompras.xhtml" value="Ver" styleClass="btn btn-warning">
+                                <f:param name="codCompra" value="#{compra.codCompra}" />
+                                </h:link>
+                                </td>
+                            </tr>
+                        </ui:repeat>
+                    </tbody>
+                </table>
+            </div>
+        </h:form>
+            
+        <h:form>
+            <div class="container mt-5">
+                <h4 style="font-weight: bold;">Detalle de la compra</h4>
+                <table class="table table-bordered table-striped">
+                     <thead class="table-black-header">
+                        <tr>
+                            <th>Código de curso</th>
+                            <th>Categoría</th>
+                            <th>Cantidad</th>
+                            <th>Precio unitario</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat value="#{control_compras.lisdetalles}" var="deta">
+                            <tr>
+                                <td>#{deta.codcur}</td>
+                                <td>#{deta.nomCat}</td>
+                                <td>#{deta.cantidad}</td>
+                                <td>
+                                    <h:outputText value="#{deta.precio}">
+                                        <f:convertNumber type="currency" currencySymbol="S/."/>
+                                    </h:outputText>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{deta.total()}">
+                                        <f:convertNumber type="currency" currencySymbol="S/."/>
+                                    </h:outputText>
+                                </td>
+                                
+                                
+                            </tr>
+                        </ui:repeat>
+               
+                    </tbody>
+                </table>
+            </div>
+        </h:form>
+        </section>
+    </h:body>
+</html>
